@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+.top-box {
+    --mask:
+      radial-gradient(35.78px at 50% calc(100% - 49.50px),#000 99%,#0000 101%) calc(50% - 60px) 0/120px 100%,
+      radial-gradient(35.78px at 50% calc(100% + 19.50px),#0000 99%,#000 101%) 50% calc(100% - 30px)/120px 100% repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+
+  .bottom-box {
+    --mask:
+      radial-gradient(35.78px at 50% 49.50px,#000 99%,#0000 101%) calc(50% - 60px) 0/120px 100%,
+      radial-gradient(35.78px at 50% -19.5px,#0000 99%,#000 101%) 50% 30px/120px 100% repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+
+  .font-chewy *:not(p) {
+    font-family: 'Chewy', sans-serif;
+  }
+  
+  p {
+    font-family: 'sriracha', sans-serif; /* Replace 'Your Default Font' with your desired default font */
+  }
