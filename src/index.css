@@ -23,5 +23,54 @@
   }
   
   p {
-    font-family: 'sriracha', sans-serif; /* Replace 'Your Default Font' with your desired default font */
+    font-family: 'bricolage', sans-serif; /* Replace 'Your Default Font' with your desired default font */
   }
+
+  .icon-outline-lg {
+    stroke: black;
+    stroke-width: 1;
+}
+
+  .button-hover-effect {
+    position: relative;
+    overflow: hidden;
+    background-color: #000000;
+    border: 2px solid black; 
+    box-sizing: border-box;
+}
+
+.button-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    right: 0;
+    height: 100%; 
+    z-index: 1;
+    background: linear-gradient(180deg, transparent, #000000);
+    transition: top 0.5s;
+}
+
+.button-hover-effect:hover::before {
+    top: -100%; 
+}
+
+.button-hover-effect:hover {
+    background-color: transparent;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+  background-size: 200% 100%;
+}
+

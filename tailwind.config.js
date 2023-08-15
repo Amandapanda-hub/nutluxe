@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'chewy': ['Chewy', 'sans-serif'],
-        'sriracha': ['Sriracha', 'sans-serif']
+        'sriracha': ['Sriracha', 'sans-serif'],
+        'bricolage': ['Bricolage Grotesque', 'sans-serif']
       }
     },
   },

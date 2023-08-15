@@ -1,5 +1,5 @@
 import React from 'react';
-import NutHero from '../../../../assets/images/Heros/makeitfit.jpeg'; 
+import NutHero from '../../../../assets/images/Heros/nutgalaxy2.png'; 
 
 export default function Hero() {
   return (
@@ -9,7 +9,7 @@ export default function Hero() {
         style={{ backgroundImage: `url(${NutHero})` }}
       >
         <div className="w-1/2 bg-opacity-50 p-4 rounded-md"> 
-          <h1 className="text-white font-bold text-center tracking-widest text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-white font-bold text-center tracking-widest text-4xl md:text-5xl lg:text-6xl xl:text-7xl" style={{ WebkitTextStroke: '0.5px black' }}>
             Nuts From Every Planet
           </h1>
         </div>

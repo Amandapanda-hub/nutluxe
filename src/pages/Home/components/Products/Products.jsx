@@ -1,35 +1,37 @@
-import React from 'react';
-import image1 from '../../../../assets/images/Products/nutdisplay1.png'
-import image2 from '../../../../assets/images/Products/nutdisplay2.png'
-import image3 from '../../../../assets/images/Products/nutdisplay3.png'
-import image4 from '../../../../assets/images/Products/nutdisplay4.png'
-import image5 from '../../../../assets/images/Products/nutdisplay5.png'
-import image6 from '../../../../assets/images/Products/nutdisplay6.png'
-
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { slugify } from '../../../../utilities/utils';
+import products from '../../../../assets/data/Products';  
 
 export default function Products() {
-  const products = [
-    { img: image1, title: 'Product 1', desc: 'Description 1', link: '/product1' },
-    { img: image2, title: 'Product 2', desc: 'Description 2', link: '/product2' },
-    { img: image3, title: 'Product 2', desc: 'Description 2', link: '/product2' },
-    { img: image4, title: 'Product 2', desc: 'Description 2', link: '/product2' },
-    { img: image5, title: 'Product 2', desc: 'Description 2', link: '/product2' },
-    { img: image6, title: 'Product 2', desc: 'Description 2', link: '/product2' },
-  ];
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); // simulate a 1 second loading
+  }, []);
+
 
   return (
-    <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-20'>
-      {products.map((product, index) => (
-        <a 
-           key={index} 
-           href={product.link} 
-           className=' p-4 rounded transition-transform duration-200 transform hover:-translate-y-2'
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-20'>
+    {loading ? (
+      // Display skeleton loaders for each product
+      Array.from({ length: products.length }).map((_, index) => (
+        <div key={index} className='p-4 rounded bg-gray-300 animate-pulse skeleton h-[50vh]'></div>
+      ))
+    ) : (
+      products.map((product, index) => (
+        <Link 
+          key={index} 
+          to={`/product-detail/${slugify(product.title)}`}
+          className='block p-4 rounded transition-transform duration-200 transform hover:-translate-y-2 fade-in'
         >
           <img src={product.img} alt={product.title} className='w-full h-[50vh] object-cover mb-4 rounded'/>
-          <h2 className='text-left text-lg mb-2 font-extrabold'>{product.title}</h2>
-          <p className='text-left text-md'>{product.desc}</p>
-        </a>
-      ))}
-    </div>
+          <h2 className='text-left text-2xl mb-2 font-extrabold'>{product.title}</h2>
+        </Link>
+      ))
+    )}
+  </div>
   );
 }
